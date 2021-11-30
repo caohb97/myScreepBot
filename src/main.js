@@ -2,26 +2,14 @@ import { errorMapper } from './modules/errorMapper';
 import { roleHarvester } from './modules/role.harvester';
 import { roleUpgrader } from './modules/role.upgrader';
 import { roleBuilder } from './modules/role.builder';
+import { roleTower } from './modules/role.tower';
 
 //var roleHarvester = require('role.harvester');
 //var roleUpgrader = require('role.upgrader');
 
 export const loop = errorMapper(() => {
 
-    var tower = Game.getObjectById('d52cc5ef658c0b5649e4efc3');
-    if(tower) {
-        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES,{
-            filter: (structure) => structure.hits < structure.hitsMax
-        });
-        if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
-        }
-
-        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if(closestHostile) {
-            tower.attack(closestHostile);
-        }
-    }
+    roleTower();
 
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
