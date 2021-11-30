@@ -11,7 +11,7 @@ export const loop = errorMapper(() => {
 
     clearMemory.creeps();
 
-    # 保证创建顺序
+    // 保证创建顺序
     roleBuilder.create();
     roleUpgrader.create();
     roleHarvester.create();
