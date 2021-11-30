@@ -3,6 +3,7 @@ import { roleHarvester } from './modules/role.harvester';
 import { roleUpgrader } from './modules/role.upgrader';
 import { roleBuilder } from './modules/role.builder';
 import { roleTower } from './modules/role.tower';
+import { clearMemory } from './modules/clear.memory';
 
 //var roleHarvester = require('role.harvester');
 //var roleUpgrader = require('role.upgrader');
@@ -11,12 +12,7 @@ export const loop = errorMapper(() => {
 
     roleTower();
 
-    for(var name in Memory.creeps) {
-        if(!Game.creeps[name]) {
-            delete Memory.creeps[name];
-            console.log('Clearing non-existing creep memory: ' + name);
-        }
-    }
+    clearMemory.creeps();
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     console.log('Harvesters: ' + harvesters.length);
