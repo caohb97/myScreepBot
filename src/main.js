@@ -11,12 +11,10 @@ export const loop = errorMapper(() => {
 
     clearMemory.creeps();
 
-    roleHarvester.create();
-
-    roleUpgrader.create();
-
+    # 保证创建顺序
     roleBuilder.create();
-
+    roleUpgrader.create();
+    roleHarvester.create();
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
