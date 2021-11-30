@@ -1,0 +1,7 @@
+# 忽略编译生成的文件
+dist/
+node_modules/
+package-lock.json
+
+# 忽略包含隐私的文件
+.secret.json
