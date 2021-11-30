@@ -34,9 +34,9 @@ export var roleBuilder = {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
-    }
+    },
 
-    creat: function() {
+    create: function() {
         var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
         console.log('builders: ' + builders.length);
 

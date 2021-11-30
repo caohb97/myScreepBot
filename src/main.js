@@ -7,15 +7,15 @@ import { clearMemory } from './modules/clear.memory';
 
 export const loop = errorMapper(() => {
 
-    roleTower();
+    roleTower.run();
 
     clearMemory.creeps();
 
-    roleHarvester.creat();
+    roleHarvester.create();
 
-    roleUpgrader.creat();
+    roleUpgrader.create();
 
-    roleBuilder.creat();
+    roleBuilder.create();
 
 
     for(var name in Game.creeps) {

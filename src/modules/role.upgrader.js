@@ -21,9 +21,9 @@ export var roleUpgrader = {
                 creep.moveTo(creep.room.controller);
             }
         }
-    }
+    },
 
-    creat: function() {
+    create: function() {
         var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
         console.log('upgraders: ' + upgraders.length);
 
