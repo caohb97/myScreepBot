@@ -5,9 +5,6 @@ import { roleBuilder } from './modules/role.builder';
 import { roleTower } from './modules/role.tower';
 import { clearMemory } from './modules/clear.memory';
 
-//var roleHarvester = require('role.harvester');
-//var roleUpgrader = require('role.upgrader');
-
 export const loop = errorMapper(() => {
 
     roleTower();
