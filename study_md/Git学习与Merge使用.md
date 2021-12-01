@@ -1,5 +1,7 @@
 # Git学习与Merge使用
 
+参考自：[黑马程序员Git全套教程](https://www.bilibili.com/video/BV1MU4y1Y7h5)、[Sublime Merge视频教程](https://www.bilibili.com/video/BV1Wp4y1Q77c)
+
 ## Git安装与环境配置
 
 ### 通过[Git 下载地址](https://git-scm.com/downloads)下载Git。

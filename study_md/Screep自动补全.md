@@ -1,4 +1,6 @@
-# Screeps 使用 VSCode 进行开发并添加自动补全
+# Screeps 使用 Sublime或VSCode 进行开发并添加自动补全
+
+**摘录自：[Screeps 使用 VSCode 进行开发并添加自动补全](https://www.jianshu.com/p/5603d0c486b1)**
 
 ## 使用Sublime或VSCode进行开发
 

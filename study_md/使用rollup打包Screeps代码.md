@@ -1,5 +1,7 @@
 # 使用rollup打包Screeps代码
 
+**摘录自：[Screeps 使用 rollup 打包你的代码](https://www.jianshu.com/p/13e2cbcb60ab)**
+
 rollup是一个构建工具，通过进行一些设定，可以将多个源代码文件打包成一个文件（成果文件）。
 
 优点：
