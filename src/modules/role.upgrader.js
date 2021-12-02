@@ -32,7 +32,9 @@ export var roleUpgrader = {
             console.log('Spawning new upgrader: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName, 
                 {memory: {role: 'upgrader'}});
+            return true;
         }
+        return false;
 
         if(Game.spawns['Spawn1'].spawning) {
             var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];

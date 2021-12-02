@@ -12,10 +12,11 @@ export const loop = errorMapper(() => {
     clearMemory.creeps();
 
     // 保证创建顺序
-    roleBuilder.create();
-    roleUpgrader.create();
-    roleHarvester.create();
-
+    let isSpawn = false;
+    if (! isSpawn) isSpawn = isSpawn || roleHarvester.create();
+    if (! isSpawn) isSpawn = isSpawn || roleUpgrader.create();
+    if (! isSpawn) isSpawn = isSpawn || roleBuilder.create();
+    
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
