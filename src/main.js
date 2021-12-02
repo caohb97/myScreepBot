@@ -17,8 +17,8 @@ export const loop = errorMapper(() => {
     if (! isSpawn) isSpawn = isSpawn || roleUpgrader.create();
     if (! isSpawn) isSpawn = isSpawn || roleBuilder.create();
     
-    for(var name in Game.creeps) {
-        var creep = Game.creeps[name];
+    for(let name in Game.creeps) {
+        let creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
         }

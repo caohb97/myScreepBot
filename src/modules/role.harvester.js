@@ -1,23 +1,15 @@
-/*
- * Module code goes here. Use 'module.exports' to export things:
- * module.exports.thing = 'a thing';
- *
- * You can import it from another modules like this:
- * var mod = require('role.harvester');
- * mod.thing == 'a thing'; // true
- */
-export var roleHarvester = {
+export let roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
         if(creep.store.getFreeCapacity() > 0) {
-            var sources = creep.room.find(FIND_SOURCES);
+            let sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
         else {
-            var targets = creep.room.find(FIND_STRUCTURES, {
+            let targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION || 
                             structure.structureType == STRUCTURE_SPAWN ||
@@ -34,11 +26,11 @@ export var roleHarvester = {
     },
 
     create: function() {
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+        let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         console.log('Harvesters: ' + harvesters.length);
 
         if(harvesters.length < 2) {
-            var newName = 'harvester' + Game.time;
+            let newName = 'harvester' + Game.time;
             console.log('Spawning new harvester: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName, 
                 {memory: {role: 'harvester'}});
@@ -47,7 +39,7 @@ export var roleHarvester = {
         return false;
 
         if(Game.spawns['Spawn1'].spawning) {
-            var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
+            let spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
             Game.spawns['Spawn1'].room.visual.text(
                 '🛠️' + spawningCreep.memory.role,
                 Game.spawns['Spawn1'].pos.x + 1,
@@ -55,5 +47,5 @@ export var roleHarvester = {
                 {align: 'left', opacity: 0.8});
 
         }
-    }
+    },
 };

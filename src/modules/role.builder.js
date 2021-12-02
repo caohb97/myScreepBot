@@ -1,4 +1,4 @@
-export var roleBuilder = {
+export let roleBuilder = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
@@ -13,7 +13,7 @@ export var roleBuilder = {
         }
 
         if(creep.memory.building) {
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            let targets = creep.room.find(FIND_CONSTRUCTION_SITES);
             if(targets.length) {
                 if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
@@ -21,7 +21,7 @@ export var roleBuilder = {
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
+            let sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
@@ -29,11 +29,11 @@ export var roleBuilder = {
     },
 
     create: function() {
-        var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+        let builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
         console.log('builders: ' + builders.length);
 
         if(builders.length < 2) {
-            var newName = 'builder' + Game.time;
+            let newName = 'builder' + Game.time;
             console.log('Spawning new builder: ' + newName);
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName, 
                 {memory: {role: 'builder'}});
@@ -42,12 +42,12 @@ export var roleBuilder = {
         return false;
 
         if(Game.spawns['Spawn1'].spawning) {
-            var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
+            let spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
             Game.spawns['Spawn1'].room.visual.text(
                 '🛠️' + spawningCreep.memory.role,
                 Game.spawns['Spawn1'].pos.x + 1,
                 Game.spawns['Spawn1'].pos.y,
                 {align: 'left', opacity: 0.8});
         }
-    }
+    },
 };
